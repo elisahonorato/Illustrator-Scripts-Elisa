@@ -1,13 +1,12 @@
-// Count Closed Paths
+// Count Anchors without Handlers
 
 // JavaScript Script for Adobe Illustrator CS3
 // Tested with Adobe Illustrator CS3
-// Description: Count Closed Paths
+// Description: Count Anchors without Handlers
 
 // Copyright(c) 2023 Elisa Honorato
 
 var doc = app.activeDocument; // Seleccionamos el documento
-alert("Poligonos totales del documento:\n" + doc.pathItems.length) // Mostramos el número de segmentos del documento
 var numSegments = 0; // Inicializamos el contador de segmentos
 
 
@@ -16,7 +15,13 @@ for (var i = 0; i < all_selectedPaths.length; i++) { // Recorremos los segmentos
 
   var selectedPath = all_selectedPaths[i]; // Identificamos el segmento[i] del array
   var numAnchorPoints = selectedPath.pathPoints.length; // Contamos el número de puntos de anclaje
-  alert("Segmentos de la selección [" + i + "] :\n" + numAnchorPoints); // Mostramos el número de segmentos del segmento[i]
+  no_handlers = 0;
+  for (var j = 0; j < numAnchorPoints; j++) {
+    var point = selectedPath.pathPoints[j];
 
+    if (point.anchor && point.leftDirection.toString() == point.anchor.toString() && point.rightDirection.toString() == point.anchor.toString()) {
+      no_handlers +=1;
+    }
+  }
+  alert("Segmentos sin controladores de la selección [" + i + "] :\n" + no_handlers); // Mostramos el número de segmentos del segmento[i]
 }
-alert("No tienes mas Poligonos seleccionados, elige uno y vuelve a ejecutar el script"); // Mostramos el número de segmentos del documento
