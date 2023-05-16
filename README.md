@@ -38,8 +38,8 @@ Contributions to this project are welcome! If you encounter any issues or have s
 
 We would like to thank the following contributors for their valuable input and assistance in developing this script:
 
-- [Contributor 1](https://github.com/elisahonorato)
-- [Contributor 2](http://www.det.cl/francisco-galvez/)
+- [Elisa Honorato](https://github.com/elisahonorato)
+- [Pancho Gálvez](http://www.det.cl/francisco-galvez/)
 
 Your contributions have greatly enhanced the functionality and usability of the script.
 
