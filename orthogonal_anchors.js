@@ -1,3 +1,11 @@
+// Mark the anchors that are not orthogonal
+
+// JavaScript Script for Adobe Illustrator CS3
+// Tested with Adobe Illustrator CS3
+// Description: Count Anchors without Handlers
+
+// Copyright(c) 2023 Elisa Honorato
+
 var doc = app.activeDocument; // Seleccionamos el documento
 var numSegments = 0; // Inicializamos el contador de segmentos
 

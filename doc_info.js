@@ -19,4 +19,3 @@ for (var i = 0; i < all_selectedPaths.length; i++) { // Recorremos los segmentos
   alert("Segmentos de la selección [" + i + "] :\n" + numAnchorPoints); // Mostramos el número de segmentos del segmento[i]
 
 }
-alert("No tienes mas Poligonos seleccionados, elige uno y vuelve a ejecutar el script"); // Mostramos el número de segmentos del documento
