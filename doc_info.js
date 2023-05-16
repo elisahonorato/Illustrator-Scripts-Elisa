@@ -5,7 +5,7 @@
 // Description: Document Information
 
 // Copyright(c) 2023 Elisa Honorato
-// Coordinated by Pancho Gálvez
+// Coordinated by Pancho Galvez
 
 var doc = app.activeDocument; // Seleccionamos el documento
 alert("Poligonos totales del documento:\n" + doc.pathItems.length) // Mostramos el número de segmentos del documento
