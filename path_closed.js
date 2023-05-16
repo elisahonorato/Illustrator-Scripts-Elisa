@@ -5,6 +5,7 @@
 // Description: Count Anchors without Handlers
 
 // Copyright(c) 2023 Elisa Honorato
+// Coordinated by Pancho Gálvez
 
 var doc = app.activeDocument; // Seleccionamos el documento
 var numSegments = 0; // Inicializamos el contador de segmentos
