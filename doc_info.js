@@ -1,8 +1,8 @@
-// Count Closed Paths
+// Get the Document Information
 
 // JavaScript Script for Adobe Illustrator CS3
 // Tested with Adobe Illustrator CS3
-// Description: Count Closed Paths
+// Description: Document Information
 
 // Copyright(c) 2023 Elisa Honorato
 
