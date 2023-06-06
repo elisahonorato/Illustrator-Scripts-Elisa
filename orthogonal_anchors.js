@@ -20,27 +20,51 @@ for (var i = 0; i < all_selectedPaths.length; i++) {
     var point_left = selectedPath.pathPoints[j === 0 ? numAnchorPoints - 1 : j - 1];
     var point_right = selectedPath.pathPoints[j === numAnchorPoints - 1 ? 0 : j + 1];
 
-    if (j > 0 && j < numAnchorPoints - 1 && (isNumber(point_selected) || isNumber(point_left) || isNumber(point_right))) {
+    if (j > 0 && j < numAnchorPoints - 1 && (!hasHandlers(point_left) || !hasHandlers(point_right))) {
       continue;
     }
-    if (point_selected.anchor) {
-      var angle = Math.atan2(point_selected.anchor[1] - point_selected.leftDirection[1], point_selected.anchor[0] - point_selected.leftDirection[0]);
-      var degrees = angle * (180 / Math.PI);
 
-      if (degrees !== 180 && degrees !== -90 && degrees !== 0 && degrees !== 90 && degrees !== -180) {
-        var radius = 10;
-        var circle = doc.pathItems.ellipse(point_selected.anchor[1] + radius / 2, point_selected.anchor[0] - radius / 2, radius, radius);
-        circle.filled = false;
-        circle.strokeWidth = 2;
-        circle.strokeColor = new RGBColor();
-        circle.strokeColor.red = 0;
-        circle.strokeColor.green = 255;
-        circle.strokeColor.blue = 0;
-      }
+    if (!isOrthogonal(point_selected)) {
+      var radius = 10;
+      var circle = doc.pathItems.ellipse(
+        point_selected.anchor[1] + radius / 2,
+        point_selected.anchor[0] - radius / 2,
+        radius,
+        radius
+      );
+      circle.filled = false;
+      circle.strokeWidth = 2;
+      circle.strokeColor = new RGBColor();
+      circle.strokeColor.red = 0;
+      circle.strokeColor.green = 255;
+      circle.strokeColor.blue = 0;
     }
   }
 }
 
-function isNumber(point) {
-  return isNaN(Number(point.anchor[0])) || isNaN(Number(point.anchor[1]));
+function isOrthogonal(point) {
+  if (point.anchor) {
+    var angle = Math.atan2(
+      point.anchor[1] - point.leftDirection[1],
+      point.anchor[0] - point.leftDirection[0]
+    );
+    var degrees = angle * (180 / Math.PI);
+    if (
+      degrees !== 180 &&
+      degrees !== -90 &&
+      degrees !== 0 &&
+      degrees !== 90 &&
+      degrees !== -180
+    ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function hasHandlers(point) {
+  return (
+    point.anchor.toString() !== point.leftDirection.toString() ||
+    point.anchor.toString() !== point.rightDirection.toString()
+  );
 }
