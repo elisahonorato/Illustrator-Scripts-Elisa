@@ -2,7 +2,7 @@
 
 // JavaScript Script for Adobe Illustrator CS3
 // Tested with Adobe Illustrator CS3
-// Description: Count Anchors without Handlers
+// Description: Mark the anchors that are not orthogonal
 
 // Copyright(c) 2023 Elisa Honorato
 // Coordinated by Pancho Galvez
